@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Tooltip - Forms</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+
+<form>
+    <fieldset>
+        <div>
+            <label for="firstname">Firstname</label>
+            <input id="firstname" name="firstname">
+            <div class="help" id="help--firstname">Please provide your firstname.</div>
+        </div>
+        <div>
+            <label for="lastname">Lastname</label>
+            <input id="lastname" name="lastname">
+            <div class="help" id="help--lastname">Please provide also your lastname.</div>
+        </div>
+        <div>
+            <label for="address">Address</label>
+            <input id="address" name="address">
+            <div class="help" id="help--address">Your home or work address.</div>
+        </div>
+    </fieldset>
+</form>
+<button>show help</button>
+<script>
+    $('input').on('click', function(e) {
+        e.preventDefault();
+        $id = $('input:hover').attr('id');
+        $help = $('#help--' + $id);
+        $('.help').hide(0);
+        $help.css('display', 'inline-block');
+    });
+    //появление 1 подсказки по клику на соответствующий input или label
+
+    $('button').on('click', function(e) {
+        e.preventDefault();
+        $('.help').css('display', 'inline-block');
+    });
+    //появление всех подсказок
+</script>
+
+</body>
+</html>
